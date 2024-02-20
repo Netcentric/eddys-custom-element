@@ -1,7 +1,7 @@
 {
   "name": "@netcentric/eddys-custom-element",
   "version": "1.0.0",
-  "description": "<Package description>",
+  "description": "Plugin to allow decorate block as webcomponent",
   "license": "Apache-2.0",
   "private": false,
   "publishConfig": {
@@ -9,13 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/netcentric/eddys-custom-element"
+    "url": "https://github.com/Netcentric/eddys-custom-element"
   },
-  "main": "src/index.js",
+  "main": "libs/",
+  "author": "Cognizant Netcentric (https://www.netcentric.biz)",
   "scripts": {
+    "postinstall": "node install.js",
     "test": "echo \"Error: no test specified\""
   },
-  "keywords": [
-    "keyword"
-  ]
+  "browserslist": [
+    "last 2 versions",
+    "not ie > 0",
+    "not ie_mob > 0",
+    "not dead",
+    "not OperaMini all"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
