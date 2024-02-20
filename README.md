@@ -1,10 +1,10 @@
-# npm-package-template
+# @netcentric/eddys-custom-element
 
 Description
 
-[![Version](https://img.shields.io/npm/v/@companynamespace/npm-package-template.svg)](https://npmjs.org/package/@companynamespace/npm-package-template)
-[![Build Status](https://github.com/companynamespace/npm-package-template/workflows/CI/badge.svg?branch=main)](https://github.com/companynamespace/npm-package-template/actions)
-[![CodeQL Analysis](https://github.com/companynamespace/npm-package-template/workflows/CodeQL/badge.svg?branch=main)](https://github.com/companynamespace/npm-package-template/actions)
+[![Version](https://img.shields.io/npm/v/@netcentric/eddys-custom-element.svg)](https://npmjs.org/package/@netcentric/eddys-custom-element)
+[![Build Status](https://github.com/netcentric/eddys-custom-element/workflows/CI/badge.svg?branch=main)](https://github.com/netcentric/eddys-custom-element/actions)
+[![CodeQL Analysis](https://github.com/netcentric/eddys-custom-element/workflows/CodeQL/badge.svg?branch=main)](https://github.com/netcentric/eddys-custom-element/actions)
 [![semver: semantic-release](https://img.shields.io/badge/semver-semantic--release-blue.svg)](https://github.com/semantic-release/semantic-release)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -13,10 +13,10 @@ Description
 1. Create a new repo from this Template
    [![Template repo](https://docs.github.com/assets/images/help/repository/use-this-template-button.png)](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
 2. Update the Readme
-    - replace `@companynamespace/npm-package-template`  with the new package_name
+    - replace `@netcentric/eddys-custom-element`  with the new package_name
 3. Update package.json
-    - replace "name" `@companynamespace/npm-package-template`  with the new package_name
-    - replace "repository.url" `https://github.com/companynamespace/npm-package-template`  with the new repository url
+    - replace "name" `@netcentric/eddys-custom-element`  with the new package_name
+    - replace "repository.url" `https://github.com/netcentric/eddys-custom-element`  with the new repository url
     - Add description, and other fields if needed
 4. Update LICENSE
     - Update `[COMPANY` name
