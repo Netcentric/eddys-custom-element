@@ -1,63 +1,108 @@
-# @netcentric/eddys-custom-element
+# Eddy's Custom Element
 
-Description
+Plugin to allow decorate block as webcomponent / custom element
 
-[![Version](https://img.shields.io/npm/v/@netcentric/eddys-custom-element.svg)](https://npmjs.org/package/@netcentric/eddys-custom-element)
-[![Build Status](https://github.com/netcentric/eddys-custom-element/workflows/CI/badge.svg?branch=main)](https://github.com/netcentric/eddys-custom-element/actions)
-[![CodeQL Analysis](https://github.com/netcentric/eddys-custom-element/workflows/CodeQL/badge.svg?branch=main)](https://github.com/netcentric/eddys-custom-element/actions)
-[![semver: semantic-release](https://img.shields.io/badge/semver-semantic--release-blue.svg)](https://github.com/semantic-release/semantic-release)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+## Simple Example
 
-## TLDR;
+Regular block
 
-1. Create a new repo from this Template
-   [![Template repo](https://docs.github.com/assets/images/help/repository/use-this-template-button.png)](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
-2. Update the Readme
-    - replace `@netcentric/eddys-custom-element`  with the new package_name
-3. Update package.json
-    - replace "name" `@netcentric/eddys-custom-element`  with the new package_name
-    - replace "repository.url" `https://github.com/netcentric/eddys-custom-element`  with the new repository url
-    - Add description, and other fields if needed
-4. Update LICENSE
-    - Update `[COMPANY` name
-    - Update year `[yyyy]`
-5. Update docs/CODE_OF_CONDUCT.md
-    - Update `<COMPANY>` name
-6. Activate automatic release
-    - disable `dry_run` in Release step in .github/workflows/release.yml.
+```javascript
+export default function decorate(block) {
+  // your logic
+}
+```
 
-## Content
+As custom element and classes for extensablility and lifecicles
+
+```javascript
+import curryDecorator from '../../libs/curry-decorate/curry-decorate.js';
+
+export class Hero extends HTMLElement {
+  connectedCallback() {
+    // rendering is done then call onComponentComplete for showing
+    if (this.onComponentComplete) this.onComponentComplete(this);
+  }
+}
+// define a custom element name and constructor
+export default curryDecorator('raqn-hero', Hero);
+```
+
+That way you can create and extend components as classes and web components
+
+```javascript
+import curryDecorator from '../../libs/curry-decorate/curry-decorate.js';
+
+export class Stage extends Hero {
+  connectedCallback() {
+    // your logic
+    // call super for on complete or skip and call it
+    super.connectedCallback();
+  }
+}
+export default curryDecorator('raqn-stage', Stage);
+```
+
+### shadow dom component
+
+```javascript
+import curryDecorator from '../../libs/curry-decorate/curry-decorate.js';
+import ShadowDomComponent from '../../libs/shadow-dom-
+
+export class ShadowExample extends ShadowDomComponent {
+  connectedCallback() {
+    // your logic
+    // call super for on complete or skip and call it
+    super.connectedCallback();
+  }
+}
+export default curryDecorator('raqn-stage', Stage);
+```
+
+## Usage
+
+Having a forked project from https://github.com/adobe/aem-boilerplate
+
+You can use by just
+
+`npm i @netcentric/eddys-custom-element`
+
+it will install the scripts at the root of your Edge delivery project under `libs/`
 
 ### Docs
-  - LICENSE
-  - docs/CODE_OF_CONDUCT.md
-  - docs/CONTRIBUTING.md
-  - docs/CHANGELOG.md --> dynamically updated
+
+- LICENSE
+- docs/CODE_OF_CONDUCT.md
+- docs/CONTRIBUTING.md
+- docs/CHANGELOG.md --> dynamically updated
 
 ### Issue template
-  - .github/ISSUE_TEMPLATE.md
+
+- .github/ISSUE_TEMPLATE.md
 
 ### PR template
-  - .github/PULL_REQUEST_TEMPLATE.md --> automatically closes connected issue
+
+- .github/PULL_REQUEST_TEMPLATE.md --> automatically closes connected issue
 
 ### Workflows
-  - CI --> npm ci, test and build
-  - CodeQL --> Perform CodeQL Analysis (Security, etc.)
-  - Release --> semantic-release:
-    * Creates release notes
-    * Updates CHANGELOG
-    * Updates package.json version
-    * Creates Git tag/release
-    * Publish package to NPM
-  - Manual Release --> same as Release, but can be triggered manually in Actions tab
+
+- CI --> npm ci, test and build
+- CodeQL --> Perform CodeQL Analysis (Security, etc.)
+- Release --> semantic-release:
+  - Creates release notes
+  - Updates CHANGELOG
+  - Updates package.json version
+  - Creates Git tag/release
+  - Publish package to NPM
+- Manual Release --> same as Release, but can be triggered manually in Actions tab
 
 ### Release
-  - based on Angular Commit Message Conventions in commits -
-    https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit-message-header
-  - Commit message format is used to build:
-    * Release notes
-    * Changelog updates
-    * NPM package semver
+
+- based on Angular Commit Message Conventions in commits -
+  https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit-message-header
+- Commit message format is used to build:
+  - Release notes
+  - Changelog updates
+  - NPM package semver
 
 ### Commit message Convention
 
@@ -70,4 +115,3 @@ Description
 │
 └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 ```
-
