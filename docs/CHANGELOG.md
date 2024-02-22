@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Netcentric/eddys-custom-element/compare/v1.2.0...v1.3.0) (2024-02-22)
+
+
+### Features
+
+* Update README.md ([dba59c5](https://github.com/Netcentric/eddys-custom-element/commit/dba59c5bdf88a5347371a8b6828b29a8a1110af2))
+
 # [1.2.0](https://github.com/Netcentric/eddys-custom-element/compare/v1.1.0...v1.2.0) (2024-02-22)
 
 
