@@ -46,7 +46,7 @@ export default curryDecorator('raqn-stage', Stage);
 
 ```javascript
 import curryDecorator from '../../libs/curry-decorate/curry-decorate.js';
-import ShadowDomComponent from '../../libs/shadow-dom-
+import ShadowDomComponent from '../../libs/shadow-dom-component/shadow-dom-component.js';
 
 export class ShadowExample extends ShadowDomComponent {
   connectedCallback() {
@@ -55,7 +55,7 @@ export class ShadowExample extends ShadowDomComponent {
     super.connectedCallback();
   }
 }
-export default curryDecorator('raqn-stage', Stage);
+export default curryDecorator('raqn-shadow-example', Stage);
 ```
 
 ## Usage
