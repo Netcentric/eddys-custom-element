@@ -8,11 +8,12 @@ export const breakpoints = {
 
 export function getBreakPoints() {
   window.eddysBreakpoints = window.eddysBreakpoints || breakpoints;
+  window.eddysBreakpoint = window.eddysBreakpoint || {};
   const breakpointsKeys = Object.keys(window.eddysBreakpoints);
-  window.eddysBreakpoints = breakpointsKeys.filter(
+  window.eddysBreakpoint = breakpointsKeys.filter(
     (bp) => matchMedia(`(min-width: ${breakpoints[bp]}px)`).matches,
   );
-  return window.eddysBreakpoints;
+  return window.eddysBreakpoint;
 }
 
 export function getBreakPoint() {
@@ -23,6 +24,13 @@ export function getBreakPoint() {
 export class CustomParamsComponent extends HTMLElement {
   connectedCallback() {
     this.setupParams();
+    window.addEventListener('resize', () => {
+      console.log('resize', window.eddysBreakpoint, getBreakPoint());
+      // only on width / breakpoint changes
+      if (window.eddysBreakpoint !== getBreakPoint()) {
+        this.setupParams();
+      }
+    });
   }
 
   setupParams() {
