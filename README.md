@@ -42,7 +42,7 @@ export class Stage extends Hero {
 export default curryDecorator('raqn-stage', Stage);
 ```
 
-### shadow dom component
+### Shadow Dom Component
 
 ```javascript
 import curryDecorator from '../../libs/curry-decorate/curry-decorate.js';
