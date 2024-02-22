@@ -185,6 +185,19 @@ export class Grid extends CustomParamsComponent {
 export default customElementsDecorate('eddys-grid', Grid);
 ```
 
+### Breakpoints
+
+Breakpoints can be overriden by `window.eddysBreakpoints` global
+```javascript
+window.eddysBreakpoints = {
+  s: 0,
+  m: 600,
+  l: 900,
+  xl: 1200,
+  xxl: 1500,
+};
+```
+
 ### Docs
 
 - LICENSE
