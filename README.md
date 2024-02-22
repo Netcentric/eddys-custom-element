@@ -2,9 +2,21 @@
 
 Plugin to allow decorate block as webcomponent / custom element
 
-## Simple Example
 
-Regular block
+## Installation
+
+Having a forked project from https://github.com/adobe/aem-boilerplate
+
+You can use by just
+
+`npm i @netcentric/eddys-custom-element`
+
+it will install the scripts at the root of your Edge delivery project under `libs/`
+
+
+## Usage
+
+A Regular block
 
 ```javascript
 export default function decorate(block) {
@@ -58,15 +70,23 @@ export class ShadowExample extends ShadowDomComponent {
 export default curryDecorator('raqn-shadow-example', Stage);
 ```
 
-## Usage
+Extending that class will create a custom element with shadow dom where:
+1 - Load regular css normally and should be used for avoiding CLS
+2 - Add a *.shadow.css of the component into the shadow dom
 
-Having a forked project from https://github.com/adobe/aem-boilerplate
 
-You can use by just
+```html
+<head>
+  <!-- Regular Edge Delivery Block CSS -->
+  <link rel="stylesheet" href="/blocks/your-custom-element/your-custom-element.css">
+</head>
+<your-custom-element>
+   ~ #shadow-root (open) == $0
+      <!-- Add a *.shadow.css into the shadow dom -->
+      <link rel="stylesheet" href="/blocks/your-custom-element/your-custom-element.shadow.css">
+</your-custom-element>
+```
 
-`npm i @netcentric/eddys-custom-element`
-
-it will install the scripts at the root of your Edge delivery project under `libs/`
 
 ### Docs
 
