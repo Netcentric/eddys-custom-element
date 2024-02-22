@@ -25,7 +25,6 @@ export class CustomParamsComponent extends HTMLElement {
   connectedCallback() {
     this.setupParams();
     window.addEventListener('resize', () => {
-      console.log('resize', window.eddysBreakpoint, getBreakPoint());
       // only on width / breakpoint changes
       if (window.eddysBreakpoint !== getBreakPoint()) {
         this.setupParams();
