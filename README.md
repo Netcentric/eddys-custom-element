@@ -58,6 +58,100 @@ export class ShadowExample extends ShadowDomComponent {
 export default curryDecorator('raqn-shadow-example', Stage);
 ```
 
+### Custom Params Component
+
+This allow the usage of attributes as class params in edge delivery
+
+1. Allow passing params from classes defined in Edge Delivery Services
+2. Allow sending params per breakpoint
+3. Convert classes into element attributes for usage as web components attributes.
+
+Let's check this content for example:
+
+![Grid](docs/assets/params-example.png)
+
+Here we have a block called grid, and there's 2 params defined
+
+1. `s-col` with represents a col attribute in S breakpoint
+2. `col` with represents all other breakpoints param
+
+Then we want our block to be a web component and receibe params
+
+1. we import the customElementsDecorate to create a custom element
+2. We extend CustomParamsComponent class to inherit attributes assignment
+
+```javascript
+import customElementsDecorate from '../../libs/custom-element-decorate/custom-element-decorate.js';
+import { CustomParamsComponent } from '../../libs/custom-params-component/custom-params-component.js';
+
+export class Grid extends CustomParamsComponent {
+  ...
+}
+// create custom element
+export default customElementsDecorate('eddys-grid', Grid);
+```
+
+So now our block will look like this:
+
+```html
+<eddys-grid class="grid s-col-1 col-3 block" col="3"></eddys-grid>
+```
+
+If you go to the S breakpoint it will look like
+
+```html
+<eddys-grid class="grid s-col-1 col-3 block" col="1"></eddys-grid>
+```
+
+Now that we setup the component let's create proper Web component feature
+
+- We use params to setup a grid.
+- We update the grid based on the param change.
+
+Let's enhance our component as a simple example
+
+```javascript
+import customElementsDecorate from '../../libs/custom-element-decorate/custom-element-decorate.js';
+import { CustomParamsComponent } from '../../libs/custom-params-component/custom-params-component.js';
+
+export class Grid extends CustomParamsComponent {
+  // observe changes in the col attribute
+  static get observedAttributes() {
+    return ['col'];
+  }
+
+  // inicialize on connectedCallback
+  connectedCallback() {
+    // call the super for attribute setting
+    super.connectedCallback();
+    // setup grid variables
+    this.setupGrid();
+    // show component when complete
+    if (this.onComponentComplete) this.onComponentComplete(this);
+  }
+
+  // update variables and styles if col attribute is set
+  setupGrid() {
+    const cols = this.getAttribute('col');
+    if (!cols) {
+      return;
+    }
+    this.cols = parseInt(cols, 10);
+    this.area = Array.from(Array(this.cols))
+      .map(() => '1fr')
+      .join(' ');
+    this.style.setProperty('--grid-template-columns', this.area);
+  }
+
+  // update grid if attribute is changed
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'col' && oldValue !== newValue) this.setupGrid();
+  }
+}
+// create custom element
+export default customElementsDecorate('eddys-grid', Grid);
+```
+
 ## Usage
 
 Having a forked project from https://github.com/adobe/aem-boilerplate
