@@ -71,7 +71,7 @@ export default curryDecorator('raqn-shadow-example', Stage);
 ```
 
 Extending that class will create a custom element with shadow dom where:
-1. Regular css normally and should be used for avoiding CLS
+1. Regular css should be used for avoiding CLS
 2. Inject a *.shadow.css of the component into the shadow dom
 
 
