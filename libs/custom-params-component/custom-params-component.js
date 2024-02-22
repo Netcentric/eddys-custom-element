@@ -1,9 +1,9 @@
 export const breakpoints = {
   s: 0,
-  m: 768,
-  l: 1024,
-  xl: 1280,
-  xxl: 1920,
+  m: 600,
+  l: 900,
+  xl: 1200,
+  xxl: 1500,
 };
 
 export function getBreakPoints() {
