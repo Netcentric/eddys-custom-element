@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Netcentric/eddys-custom-element/compare/v1.0.1...v1.1.0) (2024-02-22)
+
+
+### Features
+
+* getting class as params instead ([9bc5156](https://github.com/Netcentric/eddys-custom-element/commit/9bc5156abc83e8ef00d03fceb39c1f5ada42f6cd))
+
 ## [1.0.1](https://github.com/Netcentric/eddys-custom-element/compare/v1.0.0...v1.0.1) (2024-02-20)
 
 
